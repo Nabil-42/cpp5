@@ -80,13 +80,13 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat &a)
     return os;
 }
 
- void Bureaucrat::signForm(Form &form)
+ void Bureaucrat::signForm(AForm &Aform)
  {
-    if (Bureaucrat::_grade < form.GetSign())
+    if (Bureaucrat::_grade < Aform.GetSign())
         {
-            form.beSigned(*this);
-             std::cout << this->GetName() << " signed " << form.GetName() << std::endl;
+            Aform.beSigned(*this);
+             std::cout << this->GetName() << " signed " << Aform.GetName() << std::endl;
         }
     else (std::cout << this->GetName() << " couldn't sign " 
-            << form.GetName() << " because he has not the grade") << std::endl;
+            << Aform.GetName() << " because he has not the grade") << std::endl;
  }

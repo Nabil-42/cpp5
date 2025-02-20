@@ -2,6 +2,9 @@
 #define FORM_HPP
 #include <exception>
 #include <iostream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -16,6 +19,13 @@ class Form
     Form(const std::string name, bool flag, const int sign, const int execut);
     Form(const Form &copie);
     Form& operator=(const Form& other);
+    ~Form();
+    
+    const std::string GetName();
+    bool GetFlag();
+    int GetSign();
+    int GetExcut();
+    void beSigned(Bureaucrat &bureau);
 
     class GradeTooHighException : public std::exception
     {
@@ -27,7 +37,10 @@ class Form
         const char *what() const throw();
     };
 
+    friend std::ostream &operator<<(std::ostream &os, Form &a);
 
 };
+
+std::ostream &operator<<(std::ostream &os, Form &a);
 
 #endif
