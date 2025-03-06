@@ -58,6 +58,12 @@ bool AForm::GetFlag()
     return _excut;
 }
 
+void AForm::SetFlag()
+{
+    _flag = false;
+    return;
+}
+
 const char *AForm::GradeTooHighException::what() const throw()
 {
     return "Grade too high sorry !";
@@ -79,6 +85,8 @@ void AForm::beSigned(Bureaucrat &bureau)
 {
     if (bureau.GetGrade() <= AForm::_sign)
         {
-            _flag = true;   
+            _flag = true;
+            std::cout << bureau.GetName() << " signed " << AForm::GetName() << std::endl;
         }
+    else (throw GradeTooLowException());
 }

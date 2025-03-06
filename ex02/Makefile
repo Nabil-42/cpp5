@@ -1,5 +1,5 @@
 # Variables
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
 OBJ = $(SRC:%.cpp=obj/%.o)
 OBJDIR = obj
 EXEC = bureaucrat

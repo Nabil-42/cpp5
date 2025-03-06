@@ -24,11 +24,12 @@ class AForm
 
     const std::string GetName() const;
     bool GetFlag();
+    void SetFlag();
     int GetSign() const;
     int GetExcut() const;
     void beSigned(Bureaucrat &bureau);
 
-    virtual void execute(const Bureaucrat &executor) const = 0;
+    virtual void execute(const Bureaucrat &executor) = 0;
 
     class GradeTooHighException : public std::exception
     {

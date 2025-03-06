@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
 #include <climits>
 
 int main() {
@@ -7,7 +8,7 @@ int main() {
         Bureaucrat bob("Bob", 50);
         Bureaucrat alice("Alice", 1);
         
-        Form contract("Work Contract", 0 ,200, 20);
+        ShrubberyCreation contract("Schrubery Contract");
 
         std::cout << contract << std::endl;
 
