@@ -43,7 +43,7 @@ const std::string AForm::GetName() const
 {
         return _name;
 }
-bool AForm::GetFlag()
+bool AForm::GetFlag() const
 {
     return _flag;
 }

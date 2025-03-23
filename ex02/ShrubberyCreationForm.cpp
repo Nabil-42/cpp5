@@ -6,6 +6,7 @@ ShrubberyCreation::ShrubberyCreation() : AForm("ShrubberyCreationForm", 0, 145, 
         throw GradeTooLowException();
     if (AForm::GetSign() < 1 || AForm::GetExcut() < 1)
         throw GradeTooHighException(); 
+
 }
 
 ShrubberyCreation::ShrubberyCreation(const std::string &name) : AForm(name, false, 145, 137)
@@ -38,10 +39,11 @@ ShrubberyCreation::~ShrubberyCreation()
 
  }
 
-void ShrubberyCreation::execute(const Bureaucrat &bureaucrat)
+void ShrubberyCreation::execute(const Bureaucrat &bureaucrat) const
 {
     (void)bureaucrat;
-    std::fstream file("target_shrubbery.txt");
+    std::string filename = this->GetName() + "_shrubbery.txt";
+    std::ofstream file(filename.c_str(), std::ios::app);
     if (!file)
     {
         std::cerr << "Error: Creation fichier ASCII !" << std::endl;
@@ -52,7 +54,6 @@ void ShrubberyCreation::execute(const Bureaucrat &bureaucrat)
         file.close();
         return;
     }
-    SetFlag();
 
     file << "       _-_" << std::endl;
     file << "    /~~   ~~\\" << std::endl;
@@ -65,7 +66,7 @@ void ShrubberyCreation::execute(const Bureaucrat &bureaucrat)
     file << "       // \\\\" << std::endl;
 
     file.close();
-    std::cout << _target << "_shrubbery created with beautiful trees!" << std::endl;
+    std::cout << this->GetName() << "_shrubbery created with beautiful trees!" << std::endl;
 }
 
 

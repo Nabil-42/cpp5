@@ -84,11 +84,23 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat &a)
  {
      try{
             Aform.beSigned(*this);
-            Aform.execute(*this);
         }
     catch (std::exception &e)   
     {
         std::cout << this->GetName() << " couldn't sign " 
         << Aform.GetName() << " because he has not the grade" << std::endl;
+    }
+ }
+
+ void Bureaucrat::executeForm(AForm const& form)
+ {
+    try
+    {
+        form.execute(*this);
+    }
+    catch (std::exception &e)
+    {
+        std::cout << this->GetName() << " couldn't execute " 
+        << form.GetName() << " because he has not the grade" << std::endl;
     }
  }

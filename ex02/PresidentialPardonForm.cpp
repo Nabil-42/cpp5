@@ -1,6 +1,6 @@
-#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-ShrubberyCreation::ShrubberyCreation() : AForm("ShrubberyCreationForm", 0, 145, 137)
+PresidentalPardon::PresidentalPardon() : AForm("PresidentalPardonForm", 0, 25, 5)
 {
     if (AForm::GetSign() > 150 || AForm::GetExcut() > 150)
         throw GradeTooLowException();
@@ -8,7 +8,7 @@ ShrubberyCreation::ShrubberyCreation() : AForm("ShrubberyCreationForm", 0, 145, 
         throw GradeTooHighException(); 
 }
 
-ShrubberyCreation::ShrubberyCreation(const std::string &name, bool flag, int sign, int excut) : AForm(name, flag, sign, excut)
+PresidentalPardon::PresidentalPardon(const std::string &name) : AForm(name, 0, 25, 5)
 {
    if (AForm::GetSign() > 150 || AForm::GetExcut() > 150)
         throw GradeTooLowException();
@@ -16,7 +16,7 @@ ShrubberyCreation::ShrubberyCreation(const std::string &name, bool flag, int sig
         throw GradeTooHighException(); 
 }
 
-ShrubberyCreation::ShrubberyCreation(const ShrubberyCreation& copie): AForm(copie.GetName(), 0,copie.GetSign(), copie.GetExcut())
+PresidentalPardon::PresidentalPardon(const PresidentalPardon& copie): AForm(copie.GetName(), 0,copie.GetSign(), copie.GetExcut())
 {
     if (AForm::GetSign() > 150 || AForm::GetExcut() > 150)
         throw GradeTooLowException();
@@ -24,17 +24,22 @@ ShrubberyCreation::ShrubberyCreation(const ShrubberyCreation& copie): AForm(copi
         throw GradeTooHighException();
 }
 
-AForm& AForm::operator=(const AForm &other)
+PresidentalPardon& PresidentalPardon::operator=(const PresidentalPardon &other)
 {
     if (this != &other)
     {
-        _flag = other._sign;
+    
     }
 
     return *this;
 }
 
- AForm::~AForm()
+ PresidentalPardon::~PresidentalPardon()
  {
 
+ }
+
+ void  PresidentalPardon::execute(const Bureaucrat &executor) const
+ {
+    (void)executor;
  }

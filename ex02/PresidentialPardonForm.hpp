@@ -3,20 +3,21 @@
 #include <exception>
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreation : public AForm
+class PresidentalPardon : public AForm
 {
     private:
 
     public:
-    ShrubberyCreation();
-    ShrubberyCreation(const std::string &name, bool flag, int _sign, int _excut);
-    ShrubberyCreation(const ShrubberyCreation &copie);
-    ShrubberyCreation& operator=(const ShrubberyCreation &other);
-    ~ShrubberyCreation();
+    PresidentalPardon();
+    PresidentalPardon(const std::string &name);
+    PresidentalPardon(const PresidentalPardon &copie);
+    PresidentalPardon& operator=(const PresidentalPardon &other);
+    ~PresidentalPardon();
 
-    
+    void execute(const Bureaucrat &executor) const;
+
 };
 
 

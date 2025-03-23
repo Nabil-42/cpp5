@@ -1,21 +1,22 @@
-#ifndef SHRUBBERY
-#define SHRUBBERY
+#ifndef ROBOTOMY
+#define ROBOTOMY
 #include <exception>
 #include <iostream>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreation : public AForm
+class RobotomyRequest : public AForm
 {
     private:
 
     public:
-    ShrubberyCreation();
-    ShrubberyCreation(const std::string &name, bool flag, int _sign, int _excut);
-    ShrubberyCreation(const ShrubberyCreation &copie);
-    ShrubberyCreation& operator=(const ShrubberyCreation &other);
-    ~ShrubberyCreation();
+    RobotomyRequest();
+    RobotomyRequest(const std::string &name);
+    RobotomyRequest(const RobotomyRequest &copie);
+    RobotomyRequest& operator=(const RobotomyRequest &other);
+    ~RobotomyRequest();
 
+    void execute(const Bureaucrat &executor) const;
     
 };
 

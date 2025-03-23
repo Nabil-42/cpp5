@@ -8,7 +8,7 @@
 class ShrubberyCreation : public AForm
 {
     private:
-        std::string _target;
+    std::string _target;
 
     public:
         ShrubberyCreation();
@@ -17,7 +17,7 @@ class ShrubberyCreation : public AForm
         ShrubberyCreation& operator=(const ShrubberyCreation &other);
         ~ShrubberyCreation();
 
-        void execute(const Bureaucrat &executor);
+        void execute(const Bureaucrat &executor) const;
 };
 
 

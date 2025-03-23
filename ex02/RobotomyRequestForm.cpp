@@ -1,6 +1,6 @@
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-ShrubberyCreation::ShrubberyCreation() : AForm("ShrubberyCreationForm", 0, 145, 137)
+RobotomyRequest::RobotomyRequest() : AForm("RobotomyRequestForm", 0, 72, 45)
 {
     if (AForm::GetSign() > 150 || AForm::GetExcut() > 150)
         throw GradeTooLowException();
@@ -8,7 +8,7 @@ ShrubberyCreation::ShrubberyCreation() : AForm("ShrubberyCreationForm", 0, 145, 
         throw GradeTooHighException(); 
 }
 
-ShrubberyCreation::ShrubberyCreation(const std::string &name, bool flag, int sign, int excut) : AForm(name, flag, sign, excut)
+RobotomyRequest::RobotomyRequest(const std::string &name) : AForm(name, 0, 72, 45)
 {
    if (AForm::GetSign() > 150 || AForm::GetExcut() > 150)
         throw GradeTooLowException();
@@ -16,7 +16,7 @@ ShrubberyCreation::ShrubberyCreation(const std::string &name, bool flag, int sig
         throw GradeTooHighException(); 
 }
 
-ShrubberyCreation::ShrubberyCreation(const ShrubberyCreation& copie): AForm(copie.GetName(), 0,copie.GetSign(), copie.GetExcut())
+RobotomyRequest::RobotomyRequest(const RobotomyRequest& copie): AForm(copie.GetName(), 0,copie.GetSign(), copie.GetExcut())
 {
     if (AForm::GetSign() > 150 || AForm::GetExcut() > 150)
         throw GradeTooLowException();
@@ -24,17 +24,31 @@ ShrubberyCreation::ShrubberyCreation(const ShrubberyCreation& copie): AForm(copi
         throw GradeTooHighException();
 }
 
-AForm& AForm::operator=(const AForm &other)
+RobotomyRequest& RobotomyRequest::operator=(const RobotomyRequest &other)
 {
     if (this != &other)
     {
-        _flag = other._sign;
+        
     }
 
     return *this;
 }
 
- AForm::~AForm()
+ RobotomyRequest::~RobotomyRequest()
  {
 
+ }
+
+ void  RobotomyRequest::execute(const Bureaucrat &executor) const
+ {
+    (void)executor;
+    if (this->GetFlag() == 1)
+        std::cout << "Bzzz Bzzz Bzzz " << this->GetName() 
+        << " has been robotomized successfully 50% of the time."
+        << std::endl;
+    else 
+    {
+        // std::cout << "The robotomy failed." << std::endl;
+        throw(GradeTooLowException());
+    }
  }
