@@ -11,13 +11,13 @@ int main() {
         Intern intern;
         AForm* ptr;
 
-        ptr = intern.makeForm("ShrubberyCreationForm", "lemon");
+        ptr = intern.makeForm("RobotomyRequestForm", "lemon");
         if (ptr == NULL)
             return 1;
 
-        Bureaucrat alice("alice", 1);
-        alice.signForm(*ptr);
-        alice.executeForm(*ptr);
+        Bureaucrat momo("momo", 1);
+        momo.signForm(*ptr);
+        momo.executeForm(*ptr);
 
         delete ptr;
     }
