@@ -9,14 +9,18 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name)
 {
     std::cout << "Constructor bureaucrat check !!" << std::endl;
     if (grade > 150)
-        throw Bureaucrat::GradeTooHighException();
+    throw Bureaucrat::GradeTooLowException();
     if (grade < 1)
-        throw Bureaucrat::GradeTooLowException();
+    throw Bureaucrat::GradeTooHighException();
     _grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& copie) : _name(copie._name)
 {
+    if (copie._grade > 150)
+    throw Bureaucrat::GradeTooLowException();
+    if (copie._grade < 1)
+    throw Bureaucrat::GradeTooHighException();
     _grade = copie._grade;
 }
 

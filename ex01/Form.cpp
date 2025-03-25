@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form() : _name("Unamed"), _flag(false), _sign(0), _excut(0)
+Form::Form() : _name("Form"), _flag(false), _sign(0), _excut(0)
 {
     if (_sign > 150 || _excut > 150)
         throw GradeTooLowException();

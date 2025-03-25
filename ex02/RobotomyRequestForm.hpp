@@ -8,6 +8,8 @@
 class RobotomyRequest : public AForm
 {
     private:
+    std::string _target;
+
 
     public:
     RobotomyRequest();

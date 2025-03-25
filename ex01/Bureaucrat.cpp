@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _name("Unamed"),  _grade(0)
+Bureaucrat::Bureaucrat(): _name("Unamed"),  _grade(1)
 {
    
 }

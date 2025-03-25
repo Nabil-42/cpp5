@@ -8,6 +8,7 @@
 class PresidentalPardon : public AForm
 {
     private:
+    std::string _target;
 
     public:
     PresidentalPardon();

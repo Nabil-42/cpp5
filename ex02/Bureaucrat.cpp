@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _name("Unamed"),  _grade(0)
+Bureaucrat::Bureaucrat(): _name("Unamed"),  _grade(1)
 {
    
 }
@@ -49,7 +49,7 @@ const std::string Bureaucrat::GetName()
     return _name;
 }
 
-int Bureaucrat::GetGrade()
+int Bureaucrat::GetGrade() const
 {
     return _grade;
 }
@@ -87,6 +87,7 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat &a)
         }
     catch (std::exception &e)   
     {
+        std::cerr << "Exception: " << e.what() << std::endl;
         std::cout << this->GetName() << " couldn't sign " 
         << Aform.GetName() << " because he has not the grade" << std::endl;
     }
@@ -94,13 +95,11 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat &a)
 
  void Bureaucrat::executeForm(AForm const& form)
  {
-    try
-    {
-        form.execute(*this);
-    }
-    catch (std::exception &e)
-    {
-        std::cout << this->GetName() << " couldn't execute " 
-        << form.GetName() << " because he has not the grade" << std::endl;
-    }
+        try {
+            form.execute(*this);
+        }
+        catch (std::exception &e) 
+        {
+            std::cerr << "Exception: " << e.what() << std::endl;
+        }
  }
